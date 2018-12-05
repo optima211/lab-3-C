@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 
 struct person
 {
     char name[20];
-    int age;
+    char sex;
+    int year;
+    int height;
 };
 
 int save(char * filename, struct person *st, int n);
@@ -13,7 +16,7 @@ int load(char * filename);
 int main(void)
 {
     char * filename = "people.dat";
-    struct person people[] = { "Tom", 23, "Alice", 27, "Bob", 31, "Kate", 29 };
+    struct person people[] = { "Tom", 'M', 1998, 188, "Alice", 'F', 1999, 170, "Bob", 'M', 1997, 183, "Kate", 'F', 1998, 184};
     int n = sizeof(people) / sizeof(people[0]);
 
     save(filename, people, n);
@@ -93,10 +96,11 @@ int load(char * filename)
     }
     // перебор загруженных элементов и вывод на консоль
     printf("\n%d people in the file stored\n\n", n);
+    printf("#, name,      sex,      year_of_birth,      height\n");
 
     for (int k = 0; k<n; k++)
     {
-        printf("%-5d %-20s %5d \n", k + 1, (ptr + k)->name, (ptr + k)->age);
+        printf("%-2d %-6s %5c %12d %18d\n", k + 1, (ptr + k)->name, (ptr + k)->sex, (ptr + k)->year, (ptr + k)->height);
     }
 
     free(pti);
