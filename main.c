@@ -94,7 +94,6 @@ int load(char *filename) {
     for (int k = 0; k < n; k++) {
         printf("%-2d %-6s %5c %12d %18d\n", k + 1, (ptr + k)->name, (ptr + k)->sex, (ptr + k)->year, (ptr + k)->height);
         max[k] = (ptr + k)->year;
-        printf("max-mas is %d\n", max[k]);
     }
     min = 9999;
     for (int k = 0; k < n; k++) {
