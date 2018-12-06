@@ -98,7 +98,7 @@ int load(char * filename)
     // перебор загруженных элементов и вывод на консоль
     printf("\n%d people in the file stored\n\n", n);
     printf("#, name,      sex,      year_of_birth,      height\n");
-    int max[4], maxs, index, min;
+    int max[4], index, min;
     for (int k = 0; k<n; k++)
     {
         printf("%-2d %-6s %5c %12d %18d\n", k + 1, (ptr + k)->name, (ptr + k)->sex, (ptr + k)->year, (ptr + k)->height);
